@@ -18,9 +18,17 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>googlechromes</string>
+		<string>opera-https</string>
+		<string>firefox</string>
+	</array>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2017 The AppAuth Authors</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
 </dict>
 </plist>
