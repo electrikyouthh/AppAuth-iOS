@@ -1,0 +1,6 @@
+framework module Pods_AppAuth_macOS_AppAuth_macOSTests {
+  umbrella header "Pods-AppAuth_macOS-AppAuth_macOSTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
