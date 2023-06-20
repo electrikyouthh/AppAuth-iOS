@@ -1,0 +1,6 @@
+framework module Pods_AppAuthCore {
+  umbrella header "Pods-AppAuthCore-umbrella.h"
+
+  export *
+  module * { export * }
+}

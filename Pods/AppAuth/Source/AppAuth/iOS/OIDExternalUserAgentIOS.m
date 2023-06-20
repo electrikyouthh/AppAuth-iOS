@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpartial-availability"
   __weak SFSafariViewController *_safariVC;
-  ASWebAuthenticationSession *_authenticationVC;
+  SFAuthenticationSession *_authenticationVC;
   ASWebAuthenticationSession *_webAuthenticationVC;
 #pragma clang diagnostic pop
 }
@@ -125,7 +125,7 @@ NS_ASSUME_NONNULL_BEGIN
         }
       }];
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
-      if (@available(iOS 16.1, *)) {
+      if (@available(iOS 13.0, *)) {
         authenticationVC.presentationContextProvider = self;
         authenticationVC.prefersEphemeralWebBrowserSession = _prefersEphemeralSession;
       }
@@ -135,13 +135,13 @@ NS_ASSUME_NONNULL_BEGIN
     }
   }
   // iOS 11, use SFAuthenticationSession
-  if (@available(iOS 16.1, *)) {
+  if (@available(iOS 11.0, *)) {
     // SFAuthenticationSession doesn't work with guided access (rdar://40809553)
     if (!openedUserAgent && !UIAccessibilityIsGuidedAccessEnabled()) {
       __weak OIDExternalUserAgentIOS *weakSelf = self;
       NSString *redirectScheme = request.redirectScheme;
-      ASWebAuthenticationSession *authenticationVC =
-      [[SFAuthenticationSession ASWebAuthenticationSession alloc] initWithURL:requestURL
+      SFAuthenticationSession *authenticationVC =
+          [[SFAuthenticationSession alloc] initWithURL:requestURL
                                      callbackURLScheme:redirectScheme
                                      completionHandler:^(NSURL * _Nullable callbackURL,
                                                          NSError * _Nullable error) {
@@ -165,7 +165,7 @@ NS_ASSUME_NONNULL_BEGIN
     }
   }
   // iOS 9 and 10, use SFSafariViewController
-  if (@available(iOS 16.1, *)) {
+  if (@available(iOS 9.0, *)) {
     if (!openedUserAgent && _presentingViewController) {
       SFSafariViewController *safariVC =
           [[SFSafariViewController alloc] initWithURL:requestURL];
@@ -177,7 +177,7 @@ NS_ASSUME_NONNULL_BEGIN
   }
   // iOS 8 and earlier, use mobile Safari
   if (!openedUserAgent){
-    openedUserAgent = [[UIApplication sharedApplication] openURL:options:completionHandler::requestURL];
+    openedUserAgent = [[UIApplication sharedApplication] openURL:requestURL];
   }
 
   if (!openedUserAgent) {
@@ -200,7 +200,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wpartial-availability"
   SFSafariViewController *safariVC = _safariVC;
-  ASWebAuthenticationSession *authenticationVC = _authenticationVC;
+  SFAuthenticationSession *authenticationVC = _authenticationVC;
   ASWebAuthenticationSession *webAuthenticationVC = _webAuthenticationVC;
 #pragma clang diagnostic pop
   
@@ -234,7 +234,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - SFSafariViewControllerDelegate
 
-- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller NS_AVAILABLE_IOS(16.1) {
+- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller NS_AVAILABLE_IOS(9.0) {
   if (controller != _safariVC) {
     // Ignore this call if the safari view controller do not match.
     return;
@@ -251,13 +251,13 @@ NS_ASSUME_NONNULL_BEGIN
   [session failExternalUserAgentFlowWithError:error];
 }
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 170000
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
 #pragma mark - ASWebAuthenticationPresentationContextProviding
 
-- (ASPresentationAnchor)presentationAnchorForWebAuthenticationSession:(ASWebAuthenticationSession *)session API_AVAILABLE(ios(16.1)){
+- (ASPresentationAnchor)presentationAnchorForWebAuthenticationSession:(ASWebAuthenticationSession *)session API_AVAILABLE(ios(13.0)){
   return _presentingViewController.view.window;
 }
-#endif // __IPHONE_OS_VERSION_MAX_ALLOWED >= 170000
+#endif // __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
 
 @end
 
@@ -266,4 +266,3 @@ NS_ASSUME_NONNULL_END
 #endif // !TARGET_OS_MACCATALYST
 
 #endif // TARGET_OS_IOS || TARGET_OS_MACCATALYST
-ASWebAuthenticationSession
