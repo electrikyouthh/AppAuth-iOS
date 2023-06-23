@@ -1,57 +1,13 @@
 # Uncomment the next line to define a global platform for your project
  platform :ios, '16.1'
 
-target 'AppAuth-iOS' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for AppAuth-iOS
-
-  target 'AppAuth-iOSTests' do
-    # Pods for testing
-  end
-
-end
-
-target 'AppAuth-macOS' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for AppAuth-macOS
-
-  target 'AppAuth-macOSTests' do
-    # Pods for testing
-  end
-
-end
-
-target 'AppAuth-tvOS' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for AppAuth-tvOS
-
-  target 'AppAuth-tvOSTests' do
-    # Pods for testing
-  end
-
-end
-
-target 'AppAuth-watchOS' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for AppAuth-watchOS
-
-end
-
 target 'AppAuth_iOS' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for AppAuth_iOS
+   Pods for AppAuth_iOS
 
-  target 'AppAuth_iOSTests' do
+  target 'AppAuth-iOSTests' do
     # Pods for testing
   end
 
@@ -61,7 +17,7 @@ target 'AppAuth_macOS' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for AppAuth_macOS
+   Pods for AppAuth_macOS
 
   target 'AppAuth_macOSTests' do
     # Pods for testing
@@ -73,7 +29,7 @@ target 'AppAuth_tvOS' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for AppAuth_tvOS
+   Pods for AppAuth_tvOS
 
   target 'AppAuth_tvOSTests' do
     # Pods for testing
@@ -85,7 +41,51 @@ target 'AppAuth_watchOS' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for AppAuth_watchOS
+   Pods for AppAuth_watchOS
+
+end
+
+target 'AppAuth_iOS' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+   Pods for AppAuth_iOS
+
+  target 'AppAuth_iOSTests' do
+    # Pods for testing
+  end
+
+end
+
+target 'AppAuth_macOS' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+   Pods for AppAuth_macOS
+
+  target 'AppAuth_macOSTests' do
+    # Pods for testing
+  end
+
+end
+
+target 'AppAuth_tvOS' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+   Pods for AppAuth_tvOS
+
+  target 'AppAuth_tvOSTests' do
+    # Pods for testing
+  end
+
+end
+
+target 'AppAuth_watchOS' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+   Pods for AppAuth_watchOS
 
 end
 
@@ -93,7 +93,7 @@ target 'AppAuthCore' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for AppAuthCore
+   Pods for AppAuthCore
 
   target 'AppAuthCoreTests' do
     # Pods for testing
@@ -105,7 +105,7 @@ target 'AppAuthTV' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for AppAuthTV
+   Pods for AppAuthTV
 
   target 'AppAuthTVTests' do
     # Pods for testing

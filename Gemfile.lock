@@ -91,7 +91,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cocoapods (= 1.12.1)
+  cocoapods (= 1.11.3)
 
 BUNDLED WITH
    2.4.13
